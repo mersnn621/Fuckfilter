@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[プログラム] AES 暗号化</title>
+    <style>
+      input {
+        width: 500px;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+  </head>
+  <body>
+    <div id="auth">
+      <label for="pass">パスワード:</label>
+      <input type="password" id="pass" />
+      <input type="button" value="実行" onclick="run()" />
+    </div>
+    <div id="content"></div>
+    <script>
+      function run() {
+        document.getElementById("auth").style.display="none"
+        encrypted =
+          "U2FsdGVkX18dYIMrAJ9c43ZDf2o04CdItYM0IpKQ90iAkiELsrO/OpZsWg7vyg/Un+H+20zkkpOOVwXNBQkTd/x100vtAtxHajrAJYKQtQy/XS/qGksN9WA55ps+OpyoQ2GNDqgKbCLymAuTZ95UVwAp+hEVgS4O7wBiIIvN83gMH6e4gEC5M269BDKR38FT9FItIGwUHYxSo3Mp1+eD138YM7FGBIRKoi43CBnYZ/d0owz9Lg/BzIGlocFO/84MqYjIjRlyP6NxYl6C/tUdmAy/m5vn3oyT1A7iFM8UPp6y2lHB1BJLUUepqLg+uRGyW6VGg6lDMLkUXuc+Kf5a+ljHvLOuOzaRparYdo9EFUQjkLb8U7A+Z4RnN2l1Ha0/8SOlxwVMEiCcQZqt3Z9xY4bdIJHqPnJ5wXmGlz/3ZGA3G6GBcjdCEZZd+wEG0ZIVX+8HhDHN1JKNy+Wx3/uc7247yT1PsxpC2fnVqzVW/C8pL/bdibB+Ro3n8peXyX0wi6cO4eyHuu/l14m7Ry4+nR/2lbZEJlLCmwjOcQlD+19aoYAUk+7DQVkLTguBHvcQtvuF7Rw7UPs3I5POiXyR+JgEP9YruFjn7evNEXXOVHjxQbvAHdLrwbvAeHLliBcPlrnJ4vbjIGVVCKt0dIJH9ufG1/bnSzuow7a3YMoXLbfeXfkHe/dNCbPn08nt5d+JS833FpMaTc6kWcsAs34XKMt2JijKerKww9902PpegCCOVnflmbnTHMp1BmjwSjqBuMViQa7e0dLgzK3vLAOdxR+A78uiAaSQV2iJLIegS+zEMpD9BiRyOHxdBpDYdS0Z6tC0r4LDRxsN/n9BfHNA9hm9QFI1G46exVzSByiK91/O42kiFNImKT54YaagpKxP38h8QtF3/uGZebPce68n5++JWa8pkq0NREGb/R3D5CNuz1888YTIsmsxnO2mxSjLXRVFi/LOo1cEmbrYLjNjDkfiHC05omkuWXxeHtU/yliBtHK/M59x4FPK4vJiCFi6BkxlMpMO4NRuN3YIPCrtueEHm/wVjdZAHcq6mrGsOo/WB1uy9NCrFl+CciWh/wo6sOCApfVHCzkAkoAh9C4ync360TZv13vv7BXRD613jjZv/jOcvHSylfMxfWNf2soICwwEnFV+vo9B9X8fqlnIjtMojrAEsZnP47m4frGlx3WOLkgDRIV4nUj0QM+HEIcrLfq2T+2qAXKeFXT72zPGGz5mbo4+pSU/pKoD0zoNnpxbl+9DX3/gK4pbELe/9ddD4OYrQFXJzGy6RZSHDh2jIUfZZEvNh4iIMYVdVQxwqhM=";
+        decrypted = CryptoJS.AES.decrypt(
+          encrypted,
+          document.getElementById("pass").value
+        ).toString(CryptoJS.enc.Utf8);
+        document.getElementById("content").innerHTML = decrypted;
+      }
+    </script>
+  </body>
+</html>
