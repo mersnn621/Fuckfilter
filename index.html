@@ -43,6 +43,9 @@
             <a href="javascript:main('comic')" class="nav-link text-white"  name="comic">Comic</a>
           </li>
           <li>
+            <a href="javascript:main('info')" class="nav-link text-white"  name="info">Info</a>
+          </li>
+          <li>
             <a href="javascript:main('other')" class="nav-link text-white"  name="other">Other</a>
           </li>
           <li>
@@ -61,10 +64,6 @@
           document.getElementsByClassName('active')[0].classList.remove('active');
           document.getElementsByName(page)[0].classList.add('active')
           document.getElementById('iframe').setAttribute('src',`/main_site/${page}.html`)
-        }
-
-        function hidden(){
-          document.getElementById('iframe').setAttribute('src','./hidden.html')
         }
       </script>
     </main>
